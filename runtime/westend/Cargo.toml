@@ -30,6 +30,7 @@ sp-version = { git = "https://github.com/paritytech/substrate", branch = "master
 tx-pool-api = { package = "sp-transaction-pool", git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
 block-builder-api = { package = "sp-block-builder", git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
 
+pallet-atomic-swap = { git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
 pallet-authority-discovery = { git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
 pallet-authorship = { git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
 pallet-babe = { git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
@@ -78,6 +79,9 @@ primitives = { package = "polkadot-primitives", path = "../../primitives", defau
 polkadot-parachain = { path = "../../parachain", default-features = false }
 runtime-parachains = { package = "polkadot-runtime-parachains", path = "../parachains", default-features = false }
 
+orml-nft = { git = "https://github.com/danforbes/open-runtime-module-library", branch = "master", default-features = false }
+pallet-gallery = { git = "https://github.com/danforbes/kusama_art_gallery", branch = "feat/weights/benchmarking", default-features = false }
+
 [dev-dependencies]
 hex-literal = "0.3.1"
 libsecp256k1 = "0.3.5"
@@ -109,6 +113,7 @@ std = [
 	"sp-std/std",
 	"sp-io/std",
 	"frame-support/std",
+	"pallet-atomic-swap/std",
 	"pallet-authority-discovery/std",
 	"pallet-authorship/std",
 	"pallet-balances/std",
