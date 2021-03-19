@@ -70,6 +70,9 @@ pub use pallet_staking::StakerStatus;
 pub use sp_runtime::BuildStorage;
 pub use pallet_timestamp::Call as TimestampCall;
 pub use pallet_balances::Call as BalancesCall;
+pub use serde::{Deserialize, Serialize};
+pub use pallet_gallery::*;
+pub use orml_nft::*;
 
 use runtime_parachains::origin as parachains_origin;
 use runtime_parachains::configuration as parachains_configuration;
@@ -817,6 +820,28 @@ impl crowdloan::Config for Runtime {
 	type WeightInfo = crowdloan::TestWeightInfo;
 }
 
+parameter_types! {
+	pub const ProofLimit: u32 = 10_000;
+}
+
+impl pallet_atomic_swap::Config for Runtime {
+	type Event = Event;
+	type SwapAction = pallet_gallery::GallerySwapAction<Runtime>;
+	type ProofLimit = ProofLimit;
+}
+
+impl orml_nft::Config for Runtime {
+	type ClassId = u64;
+	type TokenId = u64;
+	type ClassData = pallet_gallery::ClassData;
+	type TokenData = pallet_gallery::TokenData;
+}
+
+impl pallet_gallery::Config for Runtime {
+	type Event = Event;
+	type Currency = Balances;
+}
+
 construct_runtime! {
 	pub enum Runtime where
 		Block = Block,
@@ -891,6 +916,11 @@ construct_runtime! {
 		Auctions: auctions::{Pallet, Call, Storage, Event<T>} = 41,
 		Crowdloan: crowdloan::{Pallet, Call, Storage, Event<T>} = 42,
 		Slots: slots::{Pallet, Call, Storage, Event<T>} = 43,
+
+		// Chiba Studio Pallets
+		AtomicSwap: pallet_atomic_swap::{Pallet, Call, Storage, Event<T>} = 44,
+		OrmlNft: orml_nft::{Pallet, Call, Storage} = 45,
+		ArtGalleryPallet: pallet_gallery::{Pallet, Call, Storage, Event<T>} = 46,
 	}
 }
 
