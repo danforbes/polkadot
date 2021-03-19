@@ -4187,7 +4187,7 @@ dependencies = [
 [[package]]
 name = "orml-nft"
 version = "0.4.1-dev"
-source = "git+https://github.com/danforbes/open-runtime-module-library?branch=master#809edd6582aa5e22fbcbb1ed5b84644dfa42f5ea"
+source = "git+https://github.com/chiba-studio/open-runtime-module-library?branch=master#2902f42ec85406c9e8687b6d6f0c1def5f9f778d"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -4200,7 +4200,7 @@ dependencies = [
 [[package]]
 name = "orml-traits"
 version = "0.4.1-dev"
-source = "git+https://github.com/danforbes/open-runtime-module-library?branch=master#809edd6582aa5e22fbcbb1ed5b84644dfa42f5ea"
+source = "git+https://github.com/chiba-studio/open-runtime-module-library?branch=master#2902f42ec85406c9e8687b6d6f0c1def5f9f778d"
 dependencies = [
  "frame-support",
  "funty",
@@ -4217,7 +4217,7 @@ dependencies = [
 [[package]]
 name = "orml-utilities"
 version = "0.4.1-dev"
-source = "git+https://github.com/danforbes/open-runtime-module-library?branch=master#809edd6582aa5e22fbcbb1ed5b84644dfa42f5ea"
+source = "git+https://github.com/chiba-studio/open-runtime-module-library?branch=master#2902f42ec85406c9e8687b6d6f0c1def5f9f778d"
 dependencies = [
  "frame-support",
  "funty",
@@ -4353,6 +4353,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-chiba"
+version = "0.4.0-dev"
+source = "git+https://github.com/chiba-studio/chiba-pallet?branch=master#544a9c72cd989abdc4a0b41a015741d08ab8c108"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "orml-nft",
+ "orml-traits",
+ "pallet-atomic-swap",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-collective"
 version = "3.0.0"
 source = "git+https://github.com/paritytech/substrate#462384b7670a54de85b872497c09354e9c440de0"
@@ -4417,25 +4436,6 @@ dependencies = [
  "parity-scale-codec",
  "serde",
  "sp-npos-elections",
- "sp-runtime",
- "sp-std",
-]
-
-[[package]]
-name = "pallet-gallery"
-version = "0.4.0-dev.jam"
-source = "git+https://github.com/danforbes/kusama_art_gallery?branch=feat/weights/benchmarking#d34cb8c1fe83fe922a938d64ae84a57a10b34ff5"
-dependencies = [
- "frame-benchmarking",
- "frame-support",
- "frame-system",
- "orml-nft",
- "orml-traits",
- "pallet-atomic-swap",
- "parity-scale-codec",
- "serde",
- "sp-core",
- "sp-io",
  "sp-runtime",
  "sp-std",
 ]
@@ -10838,11 +10838,11 @@ dependencies = [
  "pallet-authorship",
  "pallet-babe",
  "pallet-balances",
+ "pallet-chiba",
  "pallet-collective",
  "pallet-democracy",
  "pallet-election-provider-multi-phase",
  "pallet-elections-phragmen",
- "pallet-gallery",
  "pallet-grandpa",
  "pallet-identity",
  "pallet-im-online",

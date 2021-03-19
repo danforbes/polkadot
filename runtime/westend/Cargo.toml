@@ -79,8 +79,8 @@ primitives = { package = "polkadot-primitives", path = "../../primitives", defau
 polkadot-parachain = { path = "../../parachain", default-features = false }
 runtime-parachains = { package = "polkadot-runtime-parachains", path = "../parachains", default-features = false }
 
-orml-nft = { git = "https://github.com/danforbes/open-runtime-module-library", branch = "master", default-features = false }
-pallet-gallery = { git = "https://github.com/danforbes/kusama_art_gallery", branch = "feat/weights/benchmarking", default-features = false }
+orml-nft = { git = "https://github.com/chiba-studio/open-runtime-module-library", branch = "master", default-features = false }
+pallet-chiba = { git = "https://github.com/chiba-studio/chiba-pallet", branch = "master", default-features = false }
 
 [dev-dependencies]
 hex-literal = "0.3.1"
@@ -156,7 +156,7 @@ std = [
 	"sp-session/std",
 	"runtime-common/std",
 	"frame-try-runtime/std",
-	"pallet-gallery/std",
+	"pallet-chiba/std",
 	"frame-try-runtime/std",
 ]
 runtime-benchmarks = [

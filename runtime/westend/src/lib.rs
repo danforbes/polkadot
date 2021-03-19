@@ -71,7 +71,7 @@ pub use sp_runtime::BuildStorage;
 pub use pallet_timestamp::Call as TimestampCall;
 pub use pallet_balances::Call as BalancesCall;
 pub use serde::{Deserialize, Serialize};
-pub use pallet_gallery::*;
+pub use pallet_chiba::*;
 pub use orml_nft::*;
 
 use runtime_parachains::origin as parachains_origin;
@@ -826,18 +826,18 @@ parameter_types! {
 
 impl pallet_atomic_swap::Config for Runtime {
 	type Event = Event;
-	type SwapAction = pallet_gallery::GallerySwapAction<Runtime>;
+	type SwapAction = pallet_chiba::ChibaSwapAction<Runtime>;
 	type ProofLimit = ProofLimit;
 }
 
 impl orml_nft::Config for Runtime {
 	type ClassId = u64;
 	type TokenId = u64;
-	type ClassData = pallet_gallery::ClassData;
-	type TokenData = pallet_gallery::TokenData;
+	type ClassData = pallet_chiba::ClassData;
+	type TokenData = pallet_chiba::TokenData;
 }
 
-impl pallet_gallery::Config for Runtime {
+impl pallet_chiba::Config for Runtime {
 	type Event = Event;
 	type Currency = Balances;
 }
@@ -920,7 +920,7 @@ construct_runtime! {
 		// Chiba Studio Pallets
 		AtomicSwap: pallet_atomic_swap::{Pallet, Call, Storage, Event<T>} = 44,
 		OrmlNft: orml_nft::{Pallet, Call, Storage} = 45,
-		ArtGalleryPallet: pallet_gallery::{Pallet, Call, Storage, Event<T>} = 46,
+		ChibaStudio: pallet_chiba::{Pallet, Call, Storage, Event<T>} = 46,
 	}
 }
 
